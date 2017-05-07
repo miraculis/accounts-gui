@@ -9,6 +9,7 @@ import {AccountsComponent} from '../accounts/accounts.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {BankingService} from '../banking.service';
 import {FormsModule} from '@angular/forms';
+import {HttpModule, Response, XHRBackend, ResponseOptions} from '@angular/http';
 
 describe('StatementComponent', () => {
   let component: StatementComponent;
@@ -22,7 +23,7 @@ describe('StatementComponent', () => {
         { path: 'accounts',  component: AccountsComponent },
         { path: 'statement/:id', component: StatementComponent },
         { path: 'transfer/:id',     component: TransfersComponent }
-      ]), FormsModule],
+      ]), FormsModule, HttpModule],
       providers: [BankingService]
     })
     .compileComponents();

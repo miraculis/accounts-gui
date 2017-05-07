@@ -2,20 +2,35 @@ import { Injectable } from '@angular/core';
 import {Account} from './account';
 import {Transfer} from './transfer';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
+import {Http} from '@angular/http';
+import {Headers} from '@angular/http';
 
 @Injectable()
 export class BankingService {
-  TRANSFERS: Transfer[] = [{id: 1, from: 1, to: 1, volume: 100, ts: 1}, {id: 1, from: 1, to: 1, volume: 200, ts: 1}];
-  constructor() { }
+  headers = new Headers({'Content-Type': 'application/json'});
+  constructor(private http: Http) { }
   find(aid: number): Observable<Account[]> {
-    return Observable.of<Account[]>([{id: aid, amount: 500}]);
+    return this.http
+      .get(`api/accounts/${aid}`)
+      .map(response => [response.json() as Account]).catch(this.handleError);
   }
   transfers(id: number): Observable<Transfer[]> {
-    return Observable.of<Transfer[]>(this.TRANSFERS);
+    return this.http
+      .get(`api/accounts/${id}/transfers`)
+      .map(response => response.json().transfers as Transfer[]).catch(this.handleError);
   }
   transfer(transfer: Transfer): Observable<number> {
-    this.TRANSFERS = this.TRANSFERS.concat(transfer);
-    return Observable.of<number>(0);
+    const url = 'api/transfer';
+    return this.http
+      .post(url, JSON.stringify(transfer), {headers: this.headers})
+      .map((x) => +x.text())
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
   }
 }

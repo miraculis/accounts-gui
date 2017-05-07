@@ -9,6 +9,8 @@ import {StatementComponent} from '../statement/statement.component';
 import {AccountsComponent} from '../accounts/accounts.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {FormsModule} from '@angular/forms';
+import {Http, HttpModule, XHRBackend} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('TransfersComponent', () => {
   let component: TransfersComponent;
@@ -22,8 +24,8 @@ describe('TransfersComponent', () => {
         { path: 'accounts',  component: AccountsComponent },
         { path: 'statement/:id', component: StatementComponent },
         { path: 'transfer/:id',     component: TransfersComponent }
-      ]), FormsModule],
-      providers: [BankingService]})
+      ]), FormsModule, HttpModule],
+      providers: [BankingService, { provide: XHRBackend, useClass: MockBackend }]})
       .compileComponents();
   }));
 

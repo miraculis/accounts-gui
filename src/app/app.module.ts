@@ -8,7 +8,7 @@ import { TransfersComponent } from './transfers/transfers.component';
 import {BankingService} from './banking.service';
 import {AppRoutingModule} from './app-routing.module';
 import 'rxjs/add/operator/map';
-import { MainComponent } from './main/main.component';
+import {MainComponent} from './main/main.component';
 
 @NgModule({
   declarations: [
