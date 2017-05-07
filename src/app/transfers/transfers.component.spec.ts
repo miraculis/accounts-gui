@@ -8,6 +8,7 @@ import {BankingService} from '../banking.service';
 import {StatementComponent} from '../statement/statement.component';
 import {AccountsComponent} from '../accounts/accounts.component';
 import {RouterTestingModule} from '@angular/router/testing';
+import {FormsModule} from '@angular/forms';
 
 describe('TransfersComponent', () => {
   let component: TransfersComponent;
@@ -21,7 +22,7 @@ describe('TransfersComponent', () => {
         { path: 'accounts',  component: AccountsComponent },
         { path: 'statement/:id', component: StatementComponent },
         { path: 'transfer/:id',     component: TransfersComponent }
-      ])],
+      ]), FormsModule],
       providers: [BankingService]})
       .compileComponents();
   }));

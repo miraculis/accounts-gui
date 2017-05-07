@@ -1,13 +1,17 @@
-<div *ngIf="fromId">
-  <div>
-    <label>transfer money</label>
-    <input type = "number" [(ngModel)]="toId" placeholder="x" />
-    <input type = "number" [(ngModel)]="amount" placeholder="y" />
-  </div>
+<div *ngIf="fromId" xmlns="http://www.w3.org/1999/html">
+  <table>
+    <tr><td>destination</td><td>amount</td></tr>
+    <tr>
+      <td><input type = "number" [(ngModel)]="toId"/></td>
+      <td><input type = "number" [(ngModel)]="amount"/></td>
+    </tr>
+  </table>
   <div><button (click)="transfer()">submit</button></div>
+  <div>
+    <span *ngIf="result">{{result}}</span>
+  </div>
   <div>
     <button (click)="gotoAccounts()">accounts</button>
     <button (click)="gotoStmt(fromId)">statement</button>
   </div>
-  <span *ngIf="result">{{result}}</span>
 </div>

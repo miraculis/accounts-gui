@@ -24,7 +24,7 @@ export class StatementComponent implements OnInit {
     this.router.navigate(link);
   }
   gotoTransfers(id: number): void {
-    const link = ['/transfers', id];
+    const link = ['/transfer', id];
     this.router.navigate(link);
   }
 }

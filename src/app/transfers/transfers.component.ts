@@ -8,10 +8,10 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./transfers.component.css']
 })
 export class TransfersComponent implements OnInit {
-  fromId: 0;
-  amount: 0;
-  toId: 0;
-  result: null;
+  fromId: number;
+  amount: number;
+  toId: number;
+  result: string;
 
   constructor( private service: BankingService,
                private route: ActivatedRoute,

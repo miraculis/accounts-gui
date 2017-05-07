@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AccountsComponent } from './accounts/accounts.component';
 import { StatementComponent } from './statement/statement.component';
 import { TransfersComponent } from './transfers/transfers.component';
@@ -27,4 +26,6 @@ import { MainComponent } from './main/main.component';
   providers: [BankingService],
   bootstrap: [MainComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {}
+}
