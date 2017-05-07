@@ -1,0 +1,13 @@
+<div>
+  <ul>
+    <li *ngFor="let t of (transfers | async)">
+      <span>{{t.id}}</span>
+      <span>{{t.from}}</span>
+      <span>{{t.to}}</span>
+      <span>{{t.volume}}$</span>
+      <span>{{t.ts | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>
+    </li>
+    <button (click)="gotoSearch()">accounts</button>
+    <button (click)="gotoTransfers(id)">transfers</button>
+  </ul>
+</div>

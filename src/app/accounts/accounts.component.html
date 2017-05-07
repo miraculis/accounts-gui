@@ -1,0 +1,18 @@
+<div>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <div>
+    <div>
+    <a *ngFor="let x of (accounts | async)">
+      <div>
+        <div>
+          <span>{{x.id}}</span>
+          <span>{{x.amount}}$</span>
+        </div>
+        <button (click)="gotoStmt(x)">statements</button>
+        <button (click)="gotoTransfer(x)">transfer</button>
+      </div>
+    </a>
+    </div>
+  </div>
+</div>
