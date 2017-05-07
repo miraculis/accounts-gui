@@ -22,7 +22,8 @@ describe('StatementComponent', () => {
         { path: 'statement/:id', component: StatementComponent },
         { path: 'transfer/:id',     component: TransfersComponent }
       ])],
-      providers: [BankingService]    })
+      providers: [BankingService]
+    })
     .compileComponents();
   }));
 

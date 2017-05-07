@@ -1,3 +1,13 @@
-<p>
-  transfers works!
-</p>
+<div *ngIf="fromId">
+  <div>
+    <label>transfer money</label>
+    <input type = "number" [(ngModel)]="toId" placeholder="x" />
+    <input type = "number" [(ngModel)]="amount" placeholder="y" />
+  </div>
+  <div><button (click)="transfer()">submit</button></div>
+  <div>
+    <button (click)="gotoAccounts()">accounts</button>
+    <button (click)="gotoStmt(fromId)">statement</button>
+  </div>
+  <span *ngIf="result">{{result}}</span>
+</div>

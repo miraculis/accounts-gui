@@ -14,7 +14,8 @@ export class BankingService {
   transfers(id: number): Observable<Transfer[]> {
     return Observable.of<Transfer[]>(this.TRANSFERS);
   }
-  transfer(transfer: Transfer): void {
+  transfer(transfer: Transfer): Observable<number> {
     this.TRANSFERS.concat(transfer);
+    return Observable.of<number>(0);
   }
 }
