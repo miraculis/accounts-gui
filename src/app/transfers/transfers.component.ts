@@ -23,7 +23,7 @@ export class TransfersComponent implements OnInit {
   transfer() {
     if (this.amount !== 0 && this.toId > 0) {
       this.service.transfer({id: 0, ts: 0, from: this.fromId, to: this.toId, volume: this.amount}).subscribe(
-        (x) => this.result = x > 0 ? 'fail' : 'success');
+        (x) => this.result = x < 0 ? 'fail' : 'success');
     } else {
       console.log(this.toId);
       console.log(this.amount);
